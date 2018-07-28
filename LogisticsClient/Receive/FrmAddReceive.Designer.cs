@@ -85,7 +85,6 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.chkCIQ = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numAmount)).BeginInit();
             this.pnlCIQ.SuspendLayout();
             this.SuspendLayout();
@@ -528,10 +527,9 @@
             this.pnlCIQ.Controls.Add(this.label24);
             this.pnlCIQ.Controls.Add(this.label23);
             this.pnlCIQ.Controls.Add(this.label22);
-            this.pnlCIQ.Enabled = false;
-            this.pnlCIQ.Location = new System.Drawing.Point(585, 401);
+            this.pnlCIQ.Location = new System.Drawing.Point(522, 401);
             this.pnlCIQ.Name = "pnlCIQ";
-            this.pnlCIQ.Size = new System.Drawing.Size(313, 122);
+            this.pnlCIQ.Size = new System.Drawing.Size(376, 122);
             this.pnlCIQ.TabIndex = 50;
             // 
             // label26
@@ -543,13 +541,14 @@
             this.label26.TabIndex = 56;
             this.label26.Text = "%";
             // 
-            // txtTaskPrice
+            // txtTaxPrice
             // 
             this.txtTaxPrice.Location = new System.Drawing.Point(63, 96);
-            this.txtTaxPrice.Name = "txtTaskPrice";
+            this.txtTaxPrice.Name = "txtTaxPrice";
             this.txtTaxPrice.Size = new System.Drawing.Size(234, 21);
             this.txtTaxPrice.TabIndex = 55;
             this.txtTaxPrice.Text = "0";
+            this.txtTaxPrice.TextChanged += new System.EventHandler(this.txtTaxPrice_TextChanged);
             this.txtTaxPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSum_KeyPress);
             // 
             // txtTaxRate
@@ -559,6 +558,7 @@
             this.txtTaxRate.Size = new System.Drawing.Size(183, 21);
             this.txtTaxRate.TabIndex = 54;
             this.txtTaxRate.Text = "0";
+            this.txtTaxRate.TextChanged += new System.EventHandler(this.txtCIQPrice_TextChanged);
             this.txtTaxRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSum_KeyPress);
             // 
             // txtCIQPrice
@@ -568,6 +568,7 @@
             this.txtCIQPrice.Size = new System.Drawing.Size(234, 21);
             this.txtCIQPrice.TabIndex = 53;
             this.txtCIQPrice.Text = "0";
+            this.txtCIQPrice.TextChanged += new System.EventHandler(this.txtCIQPrice_TextChanged);
             this.txtCIQPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSum_KeyPress);
             // 
             // txtIdCard
@@ -613,23 +614,11 @@
             this.label22.TabIndex = 0;
             this.label22.Text = "身份证";
             // 
-            // chkCIQ
-            // 
-            this.chkCIQ.AutoSize = true;
-            this.chkCIQ.Location = new System.Drawing.Point(519, 401);
-            this.chkCIQ.Name = "chkCIQ";
-            this.chkCIQ.Size = new System.Drawing.Size(60, 16);
-            this.chkCIQ.TabIndex = 51;
-            this.chkCIQ.Text = "海关税";
-            this.chkCIQ.UseVisualStyleBackColor = true;
-            this.chkCIQ.CheckedChanged += new System.EventHandler(this.chkCIQ_CheckedChanged);
-            // 
             // FrmAddReceive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(929, 613);
-            this.Controls.Add(this.chkCIQ);
             this.Controls.Add(this.pnlCIQ);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.txtBillFee);
@@ -737,7 +726,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtBillFee;
         private System.Windows.Forms.Panel pnlCIQ;
-        private System.Windows.Forms.CheckBox chkCIQ;
         private System.Windows.Forms.TextBox txtTaxPrice;
         private System.Windows.Forms.TextBox txtTaxRate;
         private System.Windows.Forms.TextBox txtCIQPrice;

@@ -102,8 +102,6 @@ namespace LogisticsClient.Receive
             txtCIQPrice.Text = receive.CIQPrice.ToString();
             txtTaxPrice.Text = receive.TaxPrice.ToString();
             txtTaxRate.Text = receive.TaxRate.ToString();
-            if (receive.TaxRate != 0)
-                chkCIQ.Checked = true;
 
 
             foreach (var goodstypes in cbxGoodsType.Items)
@@ -454,12 +452,13 @@ namespace LogisticsClient.Receive
 
         private void CaluSumPrice()
         {
-            int price, china, insurance, packing;
+            int price, china, insurance, packing, tax;
             price = emptyPrice(txtPrice);
             china = emptyPrice(txtChinaPrice);
             insurance = emptyPrice(txtInsurance);
             packing = emptyPrice(txtPackingPrice);
-            txtSum.Text = (price + china + insurance + packing).ToString();
+            tax = emptyPrice(txtTaxPrice);
+            txtSum.Text = (price + china + insurance + packing + tax).ToString();
         }
 
         private int emptyPrice(TextBox tb)
@@ -558,23 +557,22 @@ namespace LogisticsClient.Receive
             e.Handled = !(txtBillFee.Text.Trim().Equals(string.Empty) || txtBillFee.Text.Trim().Equals("0"));
         }
 
-        private void chkCIQ_CheckedChanged(object sender, EventArgs e)
+        private void txtCIQPrice_TextChanged(object sender, EventArgs e)
         {
-            WithCIQTask = chkCIQ.Checked;
+            if (!txtCIQPrice.Text.Trim().Equals("") && !txtTaxRate.Text.Trim().Equals(""))
+            {
+                double price = Convert.ToInt16(txtCIQPrice.Text) * Convert.ToInt32(txtTaxRate.Text) / 100;
+                txtTaxPrice.Text = Math.Ceiling(price).ToString();
+            }
+            else
+            {
+                txtTaxPrice.Text = "0";
+            }
         }
 
-        private bool withCIQTask = false;
-        private bool WithCIQTask
+        private void txtTaxPrice_TextChanged(object sender, EventArgs e)
         {
-            get
-            {
-                return withCIQTask;
-            }
-            set
-            {
-                withCIQTask = value;
-                pnlCIQ.Enabled = withCIQTask;
-            }
+            CaluSumPrice();
         }
     }
 }
