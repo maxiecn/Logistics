@@ -442,7 +442,11 @@ namespace LogisticsAPI.Controllers.Receive
                         MoneyReceiver = receiveInfo.MoneyReceiver,
                         UnitPrice = receiveInfo.UnitPrice,
                         Seq = seq,
-                        BillFee = receiveInfo.BillFee
+                        BillFee = receiveInfo.BillFee,
+                        IdCard = receiveInfo.IdCard,
+                        CIQPrice = receiveInfo.CIQPrice,
+                        TaxPrice = receiveInfo.TaxPrice,
+                        TaxRate = receiveInfo.TaxRate
                     };
                     if (receiveInfo.hasReceiveMoney)
                         goods.MoneyReceiveTime = DateTime.Now;
