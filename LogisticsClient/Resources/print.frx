@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/20/2009 23:03:47" ReportInfo.Modified="04/26/2016 21:24:47" ReportInfo.CreatorVersion="2014.4.8.0">
+  <Dictionary>
+    <BusinessObjectDataSource Name="T_Goods" ReferenceName="Categories" DataType="null" PropName="Categories" Enabled="true">
+      <Column Name="BillID" DataType="System.String" PropName="Name"/>
+      <Column Name="Description" DataType="System.String"/>
+      <BusinessObjectDataSource Name="Products" DataType="null" Enabled="true">
+        <Column Name="Name" DataType="System.String"/>
+        <Column Name="UnitPrice" DataType="System.Decimal"/>
+      </BusinessObjectDataSource>
+    </BusinessObjectDataSource>
+    <Parameter Name="单号" DataType="System.String"/>
+    <Parameter Name="发货人" DataType="System.String"/>
+    <Parameter Name="发货人电话" DataType="System.String"/>
+    <Parameter Name="货物品名" DataType="System.String"/>
+    <Parameter Name="包装类型" DataType="System.String"/>
+    <Parameter Name="总件数" DataType="System.String"/>
+    <Parameter Name="重量体积" DataType="System.String"/>
+    <Parameter Name="国际运费" DataType="System.String"/>
+    <Parameter Name="国内运费" DataType="System.String"/>
+    <Parameter Name="包装费" DataType="System.String"/>
+    <Parameter Name="运费总额" DataType="System.String"/>
+    <Parameter Name="付款方式" DataType="System.String"/>
+    <Parameter Name="转运方式" DataType="System.String"/>
+    <Parameter Name="特别备注" DataType="System.String"/>
+    <Parameter Name="制单人" DataType="System.String"/>
+    <Parameter Name="日期" DataType="System.String"/>
+    <Parameter Name="收货人" DataType="System.String"/>
+    <Parameter Name="收货地址" DataType="System.String"/>
+    <Parameter Name="收货人电话" DataType="System.String"/>
+    <Parameter Name="密码" DataType="System.String"/>
+    <Parameter Name="保险费" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="230" PaperHeight="127" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0">
+    <ReportSummaryBand Name="ReportSummary1" Width="869.4" Height="463.05">
+      <TextObject Name="Text1" Left="585.9" Top="47.25" Width="94.5" Height="18.9" Text="[单号]" Font="宋体, 14.25pt"/>
+      <TextObject Name="Text2" Left="-9450" Top="-9450" Width="94.5" Height="18.9" Font="宋体, 9pt"/>
+      <TextObject Name="Text3" Left="85.05" Top="75.6" Width="94.5" Height="18.9" Text="[发货人]" Font="宋体, 14pt"/>
+      <TextObject Name="Text4" Left="292.95" Top="141.75" Width="113.4" Height="18.9" Text="[包装类型]" Font="宋体, 14pt"/>
+      <TextObject Name="Text5" Left="-9450" Top="-9450" Width="94.5" Height="18.9" Font="宋体, 9pt"/>
+      <TextObject Name="Text6" Left="292.95" Top="179.55" Width="122.85" Height="18.9" Text="[重量体积]" Font="宋体, 14pt"/>
+      <TextObject Name="Text7" Left="85.05" Top="207.9" Width="113.4" Height="18.9" Text="[国际运费]" Font="宋体, 14pt"/>
+      <TextObject Name="Text8" Left="94.5" Top="245.7" Width="113.4" Height="18.9" Text="[运费总额]" Font="宋体, 14pt"/>
+      <TextObject Name="Text9" Left="85.05" Top="113.4" Width="94.5" Height="18.9" Text="[发货人电话]" Font="宋体, 14pt"/>
+      <TextObject Name="Text10" Left="103.95" Top="141.75" Width="122.85" Height="18.9" Text="[货物品名]" Font="宋体, 14pt"/>
+      <TextObject Name="Text11" Left="94.5" Top="179.55" Width="94.5" Height="18.9" Text="[总件数]" Font="宋体, 14pt"/>
+      <TextObject Name="Text12" Left="207.9" Top="207.9" Width="113.4" Height="18.9" Text="[国内运费]" Font="宋体, 14pt"/>
+      <TextObject Name="Text13" Left="340.2" Top="207.9" Width="94.5" Height="18.9" Text="[包装费]" Font="宋体, 14pt"/>
+      <TextObject Name="Text14" Left="94.5" Top="274.05" Width="122.85" Height="18.9" Text="[付款方式]" Font="宋体, 14pt"/>
+      <TextObject Name="Text15" Left="94.5" Top="406.35" Width="94.5" Height="56.7" Text="[制单人]" Font="宋体, 9pt"/>
+      <TextObject Name="Text16" Left="274.05" Top="396.9" Width="122.85" Height="47.25" Text="[日期]" Font="宋体, 9pt"/>
+      <TextObject Name="Text17" Left="472.5" Top="85.05" Width="94.5" Height="18.9" Text="[收货人]" Font="宋体, 14pt"/>
+      <TextObject Name="Text18" Left="122.85" Top="302.4" Width="122.85" Height="18.9" Text="[转运方式]" Font="宋体, 14pt"/>
+      <TextObject Name="Text19" Left="94.5" Top="340.2" Width="94.5" Height="18.9" Text="[特别备注]" Font="宋体, 9pt"/>
+      <TextObject Name="Text20" Left="481.95" Top="302.4" Width="179.55" Height="18.9" Text="[收货人电话]" Font="宋体, 14pt"/>
+      <TextObject Name="Text21" Left="472.5" Top="113.4" Width="311.85" Height="151.2" Text="[收货地址]" Padding="2, 2, 2, 2" Font="宋体, 14pt"/>
+      <TextObject Name="Text22" Left="727.65" Top="47.25" Width="94.5" Height="18.9" Text="[密码]" Font="宋体, 14.25pt"/>
+      <TextObject Name="Text23" Left="727.65" Top="415.8" Width="94.5" Height="18.9" Text="[保险费]" Font="宋体, 14.25pt"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

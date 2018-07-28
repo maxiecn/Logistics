@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AE5A1A3D-E47B-4EFF-B164-099D094125AB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Model</RootNamespace>
+    <AssemblyName>Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.6\lib\net40\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.6\lib\net40\MySql.Data.Entity.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CallResult\AddNewGoodsResult.cs" />
+    <Compile Include="CallResult\PageCount.cs" />
+    <Compile Include="CallResult\ImportNewGoodsResult.cs" />
+    <Compile Include="CallResult\LoginResult.cs" />
+    <Compile Include="CallResult\QueryDetailResult.cs" />
+    <Compile Include="CallResult\QueryListResult.cs" />
+    <Compile Include="CallResult\WebResult.cs" />
+    <Compile Include="CommonConst.cs" />
+    <Compile Include="DataConst.cs" />
+    <Compile Include="DefaultModels\T_Functions.cs" />
+    <Compile Include="DefaultModels\T_IP.cs" />
+    <Compile Include="DefaultModels\T_Log.cs" />
+    <Compile Include="DefaultModels\T_PayAmount.cs" />
+    <Compile Include="DefaultModels\T_PayType.cs" />
+    <Compile Include="DefaultModels\T_Status.cs" />
+    <Compile Include="DefaultModels\T_Transinfos.cs" />
+    <Compile Include="DefaultModels\T_TransRecord.cs" />
+    <Compile Include="DefaultModels\T_TransToKM.cs" />
+    <Compile Include="DefaultModels\T_TransToKMDetail.cs" />
+    <Compile Include="DefaultModels\T_UserFunction.cs" />
+    <Compile Include="Dto\AppQueryDto.cs" />
+    <Compile Include="Dto\BackToStockGoods.cs" />
+    <Compile Include="Dto\BackToStoreGoods.cs" />
+    <Compile Include="Dto\CountMoneyDto.cs" />
+    <Compile Include="Dto\FunctionDto.cs" />
+    <Compile Include="Dto\GoodsTypeDto.cs" />
+    <Compile Include="Dto\HintInputDto.cs" />
+    <Compile Include="Dto\ImportInfo.cs" />
+    <Compile Include="Dto\ImportTrans.cs" />
+    <Compile Include="Dto\Kuaidi100.cs" />
+    <Compile Include="Dto\LoginDto.cs" />
+    <Compile Include="Dto\LoginPara.cs" />
+    <Compile Include="Dto\ModifyFunctionPara.cs" />
+    <Compile Include="Dto\PriceInfoDto.cs" />
+    <Compile Include="Dto\QueryDetailDto.cs" />
+    <Compile Include="Dto\QueryPayResultDto.cs" />
+    <Compile Include="Dto\ReceiveDto.cs" />
+    <Compile Include="Dto\SendBillDetail.cs" />
+    <Compile Include="Dto\StockInBaseInfo.cs" />
+    <Compile Include="Dto\StoreDto.cs" />
+    <Compile Include="Dto\TransCompDto.cs" />
+    <Compile Include="Dto\TransferBill.cs" />
+    <Compile Include="Dto\TransResult.cs" />
+    <Compile Include="Dto\UserDto.cs" />
+    <Compile Include="LogisticsContext.cs" />
+    <Compile Include="Migrations\201511021453482_InitialCreate.cs" />
+    <Compile Include="Migrations\201511021453482_InitialCreate.Designer.cs">
+      <DependentUpon>201511021453482_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="MoneyReceivePara.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DefaultModels\T_Customer.cs" />
+    <Compile Include="DefaultModels\T_Goods.cs" />
+    <Compile Include="DefaultModels\T_GoodsTrans.cs" />
+    <Compile Include="DefaultModels\T_GoodsTransDetail.cs" />
+    <Compile Include="DefaultModels\T_GoodsType.cs" />
+    <Compile Include="DefaultModels\T_PackingType.cs" />
+    <Compile Include="DefaultModels\T_PriceInfo.cs" />
+    <Compile Include="DefaultModels\T_Role.cs" />
+    <Compile Include="DefaultModels\T_Store.cs" />
+    <Compile Include="DefaultModels\T_TransCompany.cs" />
+    <Compile Include="DefaultModels\T_Users.cs" />
+    <Compile Include="ReceiveBill.cs" />
+    <Compile Include="Dto\SendBill.cs" />
+    <Compile Include="SystemConst.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201511021453482_InitialCreate.resx">
+      <DependentUpon>201511021453482_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,35 @@
+﻿@using Model.CallResult
+@{
+    ViewBag.Title = "Query";
+}
+<head>
+    <meta charset=utf-8 />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-itunes-app" content="app-id=458270120">
+    <link rel="shortcut icon" href="http://www.kuaidi100.com/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://cdn.kuaidi100.com/images/touch-icon-iphone.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="http://cdn.kuaidi100.com/images/touch-icon-ipad.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="http://cdn.kuaidi100.com/images/touch-icon-iphone4.png" />
+    <link rel="stylesheet" href="http://cdn.kuaidi100.com/css/smart/jquery.mobile-1.1.0.min.css?version=201504201500" />
+    <link rel="stylesheet" href="http://cdn.kuaidi100.com/css/smart/index.css?version=201504201500" />
+    <script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/jquery-1.7.1.min.js?version=201504201500"></script>
+    <script type="text/javascript" src="http://cdn.kuaidi100.com/js/util/jquery.mobile-1.1.0.min.js?version=201504201500"></script>
+</head>
+<div data-role="content" class="smart-result ui-content" style="margin-bottom:10px" role="main">
+    <div class="content-primary">
+        <div> <span id="result-comname" class="smart-result-comname">时间</span><span id="result-kuaidinum" class="smart-result-kuaidinum">状态</span> </div>
+        <table id="queryResult" cellpadding="0" cellspacing="0">
+            <tbody>
+                @foreach (Operation a in ViewData["DataList"] as List<Operation>)
+                {
+                    <tr class="odd">
+                        <td class="col">@a.时间 </td>
+                        <td class ="colstatus"></td>
+                        <td class="col2">@a.货物状态</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
