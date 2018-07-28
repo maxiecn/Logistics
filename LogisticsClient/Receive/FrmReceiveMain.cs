@@ -225,6 +225,10 @@ namespace LogisticsClient.Receive
                 modifReceiveDto.TransName = dgBills.Rows[rowIndex].Cells["ColTransComp"].Value == null
                     ? ""
                     : dgBills.Rows[rowIndex].Cells["ColTransComp"].Value.ToString();
+                modifReceiveDto.IdCard = dgBills.Rows[rowIndex].Cells["IdCard"].Value.ToString();
+                modifReceiveDto.CIQPrice = Convert.ToInt16(dgBills.Rows[rowIndex].Cells["CIQPrice"].Value);
+                modifReceiveDto.TaxRate = Convert.ToInt16(dgBills.Rows[rowIndex].Cells["TaxRate"].Value);
+                modifReceiveDto.TaxPrice = Convert.ToInt16(dgBills.Rows[rowIndex].Cells["TaxPrice"].Value);
                 FrmAddReceive fmodify = new FrmAddReceive(modifReceiveDto);
                 fmodify.ShowDialog();
                 RefreshData(1);
@@ -233,7 +237,7 @@ namespace LogisticsClient.Receive
 
         private void dgBills_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex==0)
+            if (e.RowIndex==-1)
             {
                 return;
             }
@@ -351,15 +355,6 @@ namespace LogisticsClient.Receive
             var filtergoods = goods.Where(a => a.hasReceiveMoney == false).ToList();
             new FrmReceiveMoney(filtergoods).ShowDialog();
             RefreshData(1);
-        }
-
-        private void dgBills_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex==-1)
-            {
-                return;
-            }
-            ModifyGoods();
         }
 
         private void pageCount_ValueChanged(object sender, EventArgs e)

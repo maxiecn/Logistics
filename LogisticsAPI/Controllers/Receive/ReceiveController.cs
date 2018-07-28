@@ -113,6 +113,10 @@ namespace LogisticsAPI.Controllers.Receive
                                 UnitPrice = goods.UnitPrice,
                                 MoneyReceiveTime = goods.MoneyReceiveTime == null ? DateTime.MinValue : goods.MoneyReceiveTime,
                                 MoneyReceiveRemark = goods.MoneyRemark,
+                                IdCard = goods.IdCard,
+                                CIQPrice = goods.CIQPrice,
+                                TaxRate = goods.TaxRate,
+                                TaxPrice = goods.TaxPrice
                             };
                 List<ReceiveBill> GoodsList;
                 if (storeID == 0)
@@ -195,7 +199,11 @@ namespace LogisticsAPI.Controllers.Receive
                                 MoneyReceiveTime = goods.MoneyReceiveTime == null ? DateTime.MinValue : goods.MoneyReceiveTime,
                                 MoneyReceiveRemark = goods.MoneyRemark,
                                 GoodsName = goods.GoodsName,
-                                BillFee = goods.BillFee
+                                BillFee = goods.BillFee,
+                                IdCard = goods.IdCard,
+                                CIQPrice = goods.CIQPrice,
+                                TaxRate = goods.TaxRate,
+                                TaxPrice = goods.TaxPrice
                             };
                 DateTime dt = DateTime.Now.AddDays(-90);
                 List<ReceiveBill> GoodsList;
@@ -527,6 +535,10 @@ namespace LogisticsAPI.Controllers.Receive
                     goods.hasReceiveMoney = receiveInfo.hasReceiveMoney;
                     goods.MoneyReceiver = receiveInfo.MoneyReceiver;
                     goods.BillFee = receiveInfo.BillFee;
+                    goods.IdCard = receiveInfo.IdCard;
+                    goods.CIQPrice = receiveInfo.CIQPrice;
+                    goods.TaxPrice = receiveInfo.TaxPrice;
+                    goods.TaxRate = receiveInfo.TaxRate;
                     if (receiveInfo.MoneyReceiveTime!=null && !receiveInfo.MoneyReceiveTime.Equals(string.Empty))
                     {
                         goods.MoneyReceiveTime = Convert.ToDateTime(receiveInfo.MoneyReceiveTime);

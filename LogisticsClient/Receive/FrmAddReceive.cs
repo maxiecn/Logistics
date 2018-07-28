@@ -98,6 +98,13 @@ namespace LogisticsClient.Receive
             txtGoodsName.Text = receive.GoodsName;
             txtBillFee.Text = receive.BillFee.ToString();
             txtPrice.Text = receive.Price.ToString();
+            txtIdCard.Text = receive.IdCard;
+            txtCIQPrice.Text = receive.CIQPrice.ToString();
+            txtTaxPrice.Text = receive.TaxPrice.ToString();
+            txtTaxRate.Text = receive.TaxRate.ToString();
+            if (receive.TaxRate != 0)
+                chkCIQ.Checked = true;
+
 
             foreach (var goodstypes in cbxGoodsType.Items)
             {
@@ -218,11 +225,14 @@ namespace LogisticsClient.Receive
             if (!CheckText(txtPrice, "NoPrice"))
                 return;
 
-            //FillEmptyText(txtMeasure);
-            //FillEmptyText(txtChinaPrice);
-            //FillEmptyText(txtPackingPrice);
-            //FillEmptyText(txtInsurance);
-            //FillEmptyText(txtBillFee);
+            FillEmptyText(txtMeasure);
+            FillEmptyText(txtChinaPrice);
+            FillEmptyText(txtPackingPrice);
+            FillEmptyText(txtInsurance);
+            FillEmptyText(txtBillFee);
+            FillEmptyText(txtCIQPrice);
+            FillEmptyText(txtTaxRate);
+            FillEmptyText(txtTaxPrice);
 
             ReceiveDto rd = new ReceiveDto
             {
@@ -251,7 +261,11 @@ namespace LogisticsClient.Receive
                 TransName = cbxTrans.Text,
                 hasReceiveMoney = chkHasReceiveMoney.Checked,
                 MoneyReceiver = Configure.UserID,
-                BillFee = Convert.ToInt32(txtBillFee.Text)
+                BillFee = Convert.ToInt32(txtBillFee.Text),
+                IdCard = txtIdCard.Text,
+                CIQPrice = Convert.ToInt16(txtCIQPrice.Text),
+                TaxPrice = Convert.ToInt16(txtTaxPrice.Text),
+                TaxRate = Convert.ToInt16(txtTaxRate.Text),
             };
 
             Configure.configure().save("default_pt",cbxPriceType.SelectedIndex.ToString());
@@ -542,6 +556,25 @@ namespace LogisticsClient.Receive
         private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !(txtBillFee.Text.Trim().Equals(string.Empty) || txtBillFee.Text.Trim().Equals("0"));
+        }
+
+        private void chkCIQ_CheckedChanged(object sender, EventArgs e)
+        {
+            WithCIQTask = chkCIQ.Checked;
+        }
+
+        private bool withCIQTask = false;
+        private bool WithCIQTask
+        {
+            get
+            {
+                return withCIQTask;
+            }
+            set
+            {
+                withCIQTask = value;
+                pnlCIQ.Enabled = withCIQTask;
+            }
         }
     }
 }

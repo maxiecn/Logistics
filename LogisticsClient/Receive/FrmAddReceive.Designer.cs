@@ -75,7 +75,19 @@
             this.txtGoodsName = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.txtBillFee = new System.Windows.Forms.TextBox();
+            this.pnlCIQ = new System.Windows.Forms.Panel();
+            this.label26 = new System.Windows.Forms.Label();
+            this.txtTaxPrice = new System.Windows.Forms.TextBox();
+            this.txtTaxRate = new System.Windows.Forms.TextBox();
+            this.txtCIQPrice = new System.Windows.Forms.TextBox();
+            this.txtIdCard = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.chkCIQ = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numAmount)).BeginInit();
+            this.pnlCIQ.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -299,7 +311,7 @@
             this.txtRemark.Location = new System.Drawing.Point(102, 447);
             this.txtRemark.Multiline = true;
             this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(781, 112);
+            this.txtRemark.Size = new System.Drawing.Size(349, 112);
             this.txtRemark.TabIndex = 26;
             // 
             // label14
@@ -351,7 +363,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(550, 414);
+            this.label17.Location = new System.Drawing.Point(550, 547);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(29, 12);
             this.label17.TabIndex = 32;
@@ -389,7 +401,7 @@
             // 
             // txtSum
             // 
-            this.txtSum.Location = new System.Drawing.Point(585, 405);
+            this.txtSum.Location = new System.Drawing.Point(585, 538);
             this.txtSum.Name = "txtSum";
             this.txtSum.Size = new System.Drawing.Size(298, 21);
             this.txtSum.TabIndex = 36;
@@ -505,11 +517,120 @@
             this.txtBillFee.TextChanged += new System.EventHandler(this.txtWeight_TextChanged);
             this.txtBillFee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUnitPrice_KeyPress);
             // 
+            // pnlCIQ
+            // 
+            this.pnlCIQ.Controls.Add(this.label26);
+            this.pnlCIQ.Controls.Add(this.txtTaxPrice);
+            this.pnlCIQ.Controls.Add(this.txtTaxRate);
+            this.pnlCIQ.Controls.Add(this.txtCIQPrice);
+            this.pnlCIQ.Controls.Add(this.txtIdCard);
+            this.pnlCIQ.Controls.Add(this.label25);
+            this.pnlCIQ.Controls.Add(this.label24);
+            this.pnlCIQ.Controls.Add(this.label23);
+            this.pnlCIQ.Controls.Add(this.label22);
+            this.pnlCIQ.Enabled = false;
+            this.pnlCIQ.Location = new System.Drawing.Point(585, 401);
+            this.pnlCIQ.Name = "pnlCIQ";
+            this.pnlCIQ.Size = new System.Drawing.Size(313, 122);
+            this.pnlCIQ.TabIndex = 50;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(252, 70);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(11, 12);
+            this.label26.TabIndex = 56;
+            this.label26.Text = "%";
+            // 
+            // txtTaskPrice
+            // 
+            this.txtTaxPrice.Location = new System.Drawing.Point(63, 96);
+            this.txtTaxPrice.Name = "txtTaskPrice";
+            this.txtTaxPrice.Size = new System.Drawing.Size(234, 21);
+            this.txtTaxPrice.TabIndex = 55;
+            this.txtTaxPrice.Text = "0";
+            this.txtTaxPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSum_KeyPress);
+            // 
+            // txtTaxRate
+            // 
+            this.txtTaxRate.Location = new System.Drawing.Point(63, 67);
+            this.txtTaxRate.Name = "txtTaxRate";
+            this.txtTaxRate.Size = new System.Drawing.Size(183, 21);
+            this.txtTaxRate.TabIndex = 54;
+            this.txtTaxRate.Text = "0";
+            this.txtTaxRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSum_KeyPress);
+            // 
+            // txtCIQPrice
+            // 
+            this.txtCIQPrice.Location = new System.Drawing.Point(63, 38);
+            this.txtCIQPrice.Name = "txtCIQPrice";
+            this.txtCIQPrice.Size = new System.Drawing.Size(234, 21);
+            this.txtCIQPrice.TabIndex = 53;
+            this.txtCIQPrice.Text = "0";
+            this.txtCIQPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSum_KeyPress);
+            // 
+            // txtIdCard
+            // 
+            this.txtIdCard.Location = new System.Drawing.Point(63, 9);
+            this.txtIdCard.Name = "txtIdCard";
+            this.txtIdCard.Size = new System.Drawing.Size(234, 21);
+            this.txtIdCard.TabIndex = 52;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(28, 99);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(29, 12);
+            this.label25.TabIndex = 3;
+            this.label25.Text = "税额";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(28, 70);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(29, 12);
+            this.label24.TabIndex = 2;
+            this.label24.Text = "税率";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(4, 41);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(53, 12);
+            this.label23.TabIndex = 1;
+            this.label23.Text = "认定价值";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(16, 12);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(41, 12);
+            this.label22.TabIndex = 0;
+            this.label22.Text = "身份证";
+            // 
+            // chkCIQ
+            // 
+            this.chkCIQ.AutoSize = true;
+            this.chkCIQ.Location = new System.Drawing.Point(519, 401);
+            this.chkCIQ.Name = "chkCIQ";
+            this.chkCIQ.Size = new System.Drawing.Size(60, 16);
+            this.chkCIQ.TabIndex = 51;
+            this.chkCIQ.Text = "海关税";
+            this.chkCIQ.UseVisualStyleBackColor = true;
+            this.chkCIQ.CheckedChanged += new System.EventHandler(this.chkCIQ_CheckedChanged);
+            // 
             // FrmAddReceive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(929, 613);
+            this.Controls.Add(this.chkCIQ);
+            this.Controls.Add(this.pnlCIQ);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.txtBillFee);
             this.Controls.Add(this.label20);
@@ -560,6 +681,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "添加收货信息";
             ((System.ComponentModel.ISupportInitialize)(this.numAmount)).EndInit();
+            this.pnlCIQ.ResumeLayout(false);
+            this.pnlCIQ.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -613,5 +736,16 @@
         private System.Windows.Forms.TextBox txtGoodsName;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtBillFee;
+        private System.Windows.Forms.Panel pnlCIQ;
+        private System.Windows.Forms.CheckBox chkCIQ;
+        private System.Windows.Forms.TextBox txtTaxPrice;
+        private System.Windows.Forms.TextBox txtTaxRate;
+        private System.Windows.Forms.TextBox txtCIQPrice;
+        private System.Windows.Forms.TextBox txtIdCard;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label26;
     }
 }

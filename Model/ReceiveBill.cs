@@ -165,6 +165,28 @@ namespace Model
         [DisplayName("收款备注")]
         public string MoneyReceiveRemark { get; set; }
 
+        [DisplayName("身份证号")]
+        public string IdCard
+        {
+            get; set;
+        }
 
+        [DisplayName("认定价格")]
+        public int CIQPrice
+        {
+            get; set;
+        }
+
+        [DisplayName("税率")]
+        public int TaxRate
+        {
+            get; set;
+        }
+
+        [DisplayName("税额")]
+        public int TaxPrice
+        {
+            get; set;
+        }
     }
 }

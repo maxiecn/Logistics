@@ -65,5 +65,25 @@ namespace Model.Dto
         public string MoneyReceiveTime { get; set; }
 
         public int BillFee { get; set; }
+
+        public string IdCard
+        {
+            get; set;
+        }
+
+        public int CIQPrice
+        {
+            get; set;
+        }
+
+        public int TaxRate
+        {
+            get; set;
+        }
+
+        public int TaxPrice
+        {
+            get; set;
+        }
     }
 }

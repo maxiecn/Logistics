@@ -296,7 +296,7 @@
             this.dgBills.RowTemplate.Height = 23;
             this.dgBills.Size = new System.Drawing.Size(1060, 614);
             this.dgBills.TabIndex = 4;
-            this.dgBills.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgBills_CellDoubleClick_1);
+            this.dgBills.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgBills_CellDoubleClick);
             this.dgBills.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgBills_ColumnHeaderMouseClick);
             this.dgBills.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgBills_RowPostPaint);
             this.dgBills.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgBills_RowStateChanged);
