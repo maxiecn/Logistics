@@ -87,6 +87,8 @@
             this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PayTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdCardFront = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdCardBack = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.popMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBillID.Properties)).BeginInit();
@@ -288,7 +290,9 @@
             this.PriceTypeID,
             this.Column22,
             this.Column30,
-            this.PayTypeID});
+            this.PayTypeID,
+            this.IdCardFront,
+            this.IdCardBack});
             this.dgBills.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgBills.Location = new System.Drawing.Point(0, 87);
             this.dgBills.Name = "dgBills";
@@ -609,6 +613,22 @@
             this.PayTypeID.ReadOnly = true;
             this.PayTypeID.Visible = false;
             // 
+            // IdCardFront
+            // 
+            this.IdCardFront.DataPropertyName = "IdCardFront";
+            this.IdCardFront.HeaderText = "IdCardFront";
+            this.IdCardFront.Name = "IdCardFront";
+            this.IdCardFront.ReadOnly = true;
+            this.IdCardFront.Visible = false;
+            // 
+            // IdCardBack
+            // 
+            this.IdCardBack.DataPropertyName = "IdCardBack";
+            this.IdCardBack.HeaderText = "IdCardBack";
+            this.IdCardBack.Name = "IdCardBack";
+            this.IdCardBack.ReadOnly = true;
+            this.IdCardBack.Visible = false;
+            // 
             // FrmReceiveMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -688,6 +708,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column22;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column30;
         private System.Windows.Forms.DataGridViewTextBoxColumn PayTypeID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdCardFront;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdCardBack;
 
     }
 }

@@ -90,5 +90,25 @@ namespace Logistics.Models
         {
             get;set;
         }
+
+        public string CIQAddress
+        {
+            get;set;
+        }
+
+        public string IdCardFront
+        {
+            get;set;
+        }
+
+        public string IdCardBack
+        {
+            get;set;
+        }
+
+        public string Detail
+        {
+            get;set;
+        }
     }
 }

@@ -203,7 +203,11 @@ namespace LogisticsAPI.Controllers.Receive
                                 IdCard = goods.IdCard,
                                 CIQPrice = goods.CIQPrice,
                                 TaxRate = goods.TaxRate,
-                                TaxPrice = goods.TaxPrice
+                                TaxPrice = goods.TaxPrice,
+                                CIQAddress = goods.CIQAddress,
+                                IdCardFront = goods.IdCardFront,
+                                IdCardBack = goods.IdCardBack,
+                                Detail = goods.Detail
                             };
                 DateTime dt = DateTime.Now.AddDays(-90);
                 List<ReceiveBill> GoodsList;
@@ -446,7 +450,11 @@ namespace LogisticsAPI.Controllers.Receive
                         IdCard = receiveInfo.IdCard,
                         CIQPrice = receiveInfo.CIQPrice,
                         TaxPrice = receiveInfo.TaxPrice,
-                        TaxRate = receiveInfo.TaxRate
+                        TaxRate = receiveInfo.TaxRate,
+                        CIQAddress = receiveInfo.CIQAddress,
+                        IdCardFront = receiveInfo.IdCardFront,
+                        IdCardBack = receiveInfo.IdCardBack,
+                        Detail = receiveInfo.Detail
                     };
                     if (receiveInfo.hasReceiveMoney)
                         goods.MoneyReceiveTime = DateTime.Now;
@@ -543,6 +551,10 @@ namespace LogisticsAPI.Controllers.Receive
                     goods.CIQPrice = receiveInfo.CIQPrice;
                     goods.TaxPrice = receiveInfo.TaxPrice;
                     goods.TaxRate = receiveInfo.TaxRate;
+                    goods.Detail = receiveInfo.Detail;
+                    goods.IdCardFront = receiveInfo.IdCardFront;
+                    goods.IdCardBack = receiveInfo.IdCardBack;
+                    goods.CIQAddress = receiveInfo.CIQAddress;
                     if (receiveInfo.MoneyReceiveTime!=null && !receiveInfo.MoneyReceiveTime.Equals(string.Empty))
                     {
                         goods.MoneyReceiveTime = Convert.ToDateTime(receiveInfo.MoneyReceiveTime);

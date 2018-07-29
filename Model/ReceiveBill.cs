@@ -188,5 +188,27 @@ namespace Model
         {
             get; set;
         }
+
+        [DisplayName("海关地址")]
+        public string CIQAddress
+        {
+            get; set;
+        }
+
+        public string IdCardFront
+        {
+            get; set;
+        }
+
+        public string IdCardBack
+        {
+            get; set;
+        }
+
+        [DisplayName("货物详情")]
+        public string Detail
+        {
+            get; set;
+        }
     }
 }

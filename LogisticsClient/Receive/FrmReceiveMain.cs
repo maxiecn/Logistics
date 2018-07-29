@@ -229,6 +229,10 @@ namespace LogisticsClient.Receive
                 modifReceiveDto.CIQPrice = Convert.ToInt16(dgBills.Rows[rowIndex].Cells["CIQPrice"].Value);
                 modifReceiveDto.TaxRate = Convert.ToInt16(dgBills.Rows[rowIndex].Cells["TaxRate"].Value);
                 modifReceiveDto.TaxPrice = Convert.ToInt16(dgBills.Rows[rowIndex].Cells["TaxPrice"].Value);
+                modifReceiveDto.CIQAddress = dgBills.Rows[rowIndex].Cells["CIQAddress"].Value.ToString();
+                modifReceiveDto.IdCardFront = dgBills.Rows[rowIndex].Cells["IdCardFront"].Value.ToString();
+                modifReceiveDto.IdCardBack = dgBills.Rows[rowIndex].Cells["IdCardBack"].Value.ToString();
+                modifReceiveDto.Detail = dgBills.Rows[rowIndex].Cells["Detail"].Value.ToString();
                 FrmAddReceive fmodify = new FrmAddReceive(modifReceiveDto);
                 fmodify.ShowDialog();
                 RefreshData(1);

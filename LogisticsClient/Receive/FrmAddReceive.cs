@@ -11,8 +11,8 @@ using LogisticsClient.Lang;
 using Model;
 using Model.CallResult;
 using Model.DefaultModels;
-using Model.Dto; 
-
+using Model.Dto;
+using System.IO;
 
 namespace LogisticsClient.Receive
 {
@@ -102,7 +102,12 @@ namespace LogisticsClient.Receive
             txtCIQPrice.Text = receive.CIQPrice.ToString();
             txtTaxPrice.Text = receive.TaxPrice.ToString();
             txtTaxRate.Text = receive.TaxRate.ToString();
-
+            txtDetail.Text = receive.Detail;
+            txtCIQAddress.Text = receive.CIQAddress;
+            btnCardFront.Tag = receive.IdCardFront;
+            ShowPic(btnCardFront, btnCardFront.Tag.ToString());
+            btnCardBack.Tag = receive.IdCardBack;
+            ShowPic(btnCardBack, btnCardBack.Tag.ToString());
 
             foreach (var goodstypes in cbxGoodsType.Items)
             {
@@ -143,6 +148,17 @@ namespace LogisticsClient.Receive
             cbxTrans.Text = receive.TransName;
         }
 
+        private void ShowPic(Button btn, String pic)
+        {
+            if (pic == null)
+                return;
+            if (!pic.Equals(string.Empty))
+            {
+                Stream picSteam = WebCall.GetPic(pic);
+                btn.BackgroundImage = Image.FromStream(picSteam);
+                picSteam.Close();
+            }
+        }
 
         private void InitBase()
         {
@@ -264,6 +280,10 @@ namespace LogisticsClient.Receive
                 CIQPrice = Convert.ToInt16(txtCIQPrice.Text),
                 TaxPrice = Convert.ToInt16(txtTaxPrice.Text),
                 TaxRate = Convert.ToInt16(txtTaxRate.Text),
+                CIQAddress = txtCIQAddress.Text,
+                IdCardFront = btnCardFront.Tag.ToString(),
+                IdCardBack = btnCardBack.Tag.ToString(),
+                Detail = txtDetail.Text
             };
 
             Configure.configure().save("default_pt",cbxPriceType.SelectedIndex.ToString());
@@ -466,29 +486,6 @@ namespace LogisticsClient.Receive
             return tb.Text.Trim().Equals(string.Empty) ? 0 : Convert.ToInt32(tb.Text);
         }
 
-        private void txtSenderName_TextChanged(object sender, EventArgs e)
-        {
-            //if (hintWindow == null)
-            //{
-            //    hintWindow = new ListBox();
-            //    this.Controls.Add(hintWindow);
-            //    hintWindow.KeyDown += hintWindow_KeyDown;
-            //    hintWindow.BringToFront();
-            //}
-
-            //if (txtSenderName.Text.Trim().Length!=0)
-            //{
-            //    List<KeyValuePair<string, string>> paramlist = new List<KeyValuePair<string, string>>();
-            //    paramlist.Add(new KeyValuePair<string, string>("_senderName", txtSenderName.Text.Trim()));
-            //    hints = WebCall.GetMethod<List<HintInputDto>>("Query/GetAllGoods", paramlist);
-            //}
-            //else
-            //{
-            //    hintWindow.Items.Clear();
-            //    hintWindow.Visible = false;
-            //}
-        }
-
         void hintWindow_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Up && hintWindow.SelectedIndex == 0)
@@ -573,6 +570,26 @@ namespace LogisticsClient.Receive
         private void txtTaxPrice_TextChanged(object sender, EventArgs e)
         {
             CaluSumPrice();
+        }
+
+        private void btnCardFront_Click(object sender, EventArgs e)
+        {
+            Button btnPic = sender as Button;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "图片文件(*.jpg,*.gif,*.bmp)|*.jpg;*.gif;*.bmp";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                var result = AppUtils.AppUtils.JsonDeserialize<WebResult>(WebCall.UploadFile(openFileDialog.FileName));
+                if (result.Code.Equals(SystemConst.MSG_SUCCESS))
+                {
+                    btnPic.Tag = result.Message;
+                    btnPic.BackgroundImage = Image.FromFile(openFileDialog.FileName);
+                }
+                else
+                {
+                    MessageBox.Show(result.Message);
+                }
+            }
         }
     }
 }

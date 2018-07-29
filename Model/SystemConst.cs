@@ -15,5 +15,7 @@ namespace Model
         public static string MSG_ERR_UNKNOWN = "E000";
 
         public static string LOG_DELETE = "DELETE";
+
+        public static string PIC_PATH = "/Site/Pics/";
     }
 }

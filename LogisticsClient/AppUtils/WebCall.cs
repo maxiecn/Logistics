@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -59,12 +62,40 @@ namespace LogisticsClient.AppUtils
             }
         }
 
+        public static string UploadFile(string fileName)
+        {
+            WebClient myWebClient = new WebClient();
+            byte[] buffer = myWebClient.UploadFile(WebCall.BaseUrl + "File/Upload", "POST", fileName);
+            var msg = Encoding.UTF8.GetString(buffer);
+            return msg;
+        }
+
         public static void LoadUrl()
         {
             //Configuration config = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             //string ip = config.AppSettings.Settings["url"].Value;
             //BaseUrl = string.Format("http://{0}:8011/", ip);
             //BaseApiUrl = string.Format("http://{0}:8011/api/", ip);
+        }
+
+        public static Stream GetPic(string url)
+        {
+            Stream mStream;
+            try
+            {
+                Uri mUri = new Uri(WebCall.BaseUrl + SystemConst.PIC_PATH + url);
+                HttpWebRequest mRequest = (HttpWebRequest)WebRequest.Create(mUri);
+                mRequest.Method = "GET";
+                mRequest.Timeout = 200;
+                mRequest.ContentType = "text/html;charset=utf-8";
+                HttpWebResponse mResponse = (HttpWebResponse)mRequest.GetResponse();
+                mStream = mResponse.GetResponseStream();
+            }
+            catch
+            {
+                return null;
+            }
+            return mStream;
         }
     }
 
