@@ -591,5 +591,11 @@ namespace LogisticsClient.Receive
                 }
             }
         }
+
+        private void lblToggle_Click(object sender, EventArgs e)
+        {
+            pnlCIQ.Visible = !pnlCIQ.Visible;
+            this.Width = pnlCIQ.Visible ? 1267 : 906;
+        }
     }
 }

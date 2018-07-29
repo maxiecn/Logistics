@@ -91,6 +91,7 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.lblToggle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numAmount)).BeginInit();
             this.pnlCIQ.SuspendLayout();
             this.SuspendLayout();
@@ -542,6 +543,7 @@
             this.pnlCIQ.Name = "pnlCIQ";
             this.pnlCIQ.Size = new System.Drawing.Size(349, 538);
             this.pnlCIQ.TabIndex = 50;
+            this.pnlCIQ.Visible = false;
             // 
             // btnCardBack
             // 
@@ -683,11 +685,23 @@
             this.label22.TabIndex = 0;
             this.label22.Text = "身份证";
             // 
+            // lblToggle
+            // 
+            this.lblToggle.AutoSize = true;
+            this.lblToggle.Location = new System.Drawing.Point(866, 7);
+            this.lblToggle.Name = "lblToggle";
+            this.lblToggle.Size = new System.Drawing.Size(17, 12);
+            this.lblToggle.TabIndex = 51;
+            this.lblToggle.Text = ">>";
+            this.lblToggle.Click += new System.EventHandler(this.lblToggle_Click);
+            // 
             // FrmAddReceive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1251, 613);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(890, 613);
+            this.Controls.Add(this.lblToggle);
             this.Controls.Add(this.pnlCIQ);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.txtBillFee);
@@ -810,5 +824,6 @@
         private System.Windows.Forms.Button btnCardFront;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox txtDetail;
+        private System.Windows.Forms.Label lblToggle;
     }
 }
