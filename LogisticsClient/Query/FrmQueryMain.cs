@@ -144,5 +144,10 @@ namespace LogisticsClient.Query
                 ExcelOper.ExportDG(sv.FileName,dgBills);
             }
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

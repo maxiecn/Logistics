@@ -101,7 +101,15 @@ namespace LogisticsAPI.Controllers.Receive{
                                 ChinaPrice = !showDetail ? 0 : goods.ChinaPrice,
                                 PackingPrice = !showDetail ? 0 : goods.PackingPrice,
                                 InsurancePrice = !showDetail ? 0 : goods.InsurancePrice,
-                                SumPrice = !showDetail ? 0 : goods.SumPrice
+                                SumPrice = !showDetail ? 0 : goods.SumPrice,
+                                IdCard = goods.IdCard,
+                                CIQPrice = goods.CIQPrice,
+                                TaxPrice = goods.TaxPrice,
+                                TaxRate = goods.TaxRate,
+                                CIQAddress = goods.CIQAddress,
+                                IdCardFront = goods.IdCardFront,
+                                IdCardBack = goods.IdCardBack,
+                                Detail = goods.Detail
                             };
                 var GoodsList = Goods.ToList();
                 if (!showDetail)

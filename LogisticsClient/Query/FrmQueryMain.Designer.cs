@@ -53,6 +53,8 @@
             this.txtBillID = new System.Windows.Forms.TextBox();
             this.dgBills = new System.Windows.Forms.DataGridView();
             this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdCardFront = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdCardBack = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hasReceiveMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BillID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -108,6 +110,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1044, 134);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pnlAdv
             // 
@@ -283,7 +286,6 @@
             this.btnQuery.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.btnQuery.Location = new System.Drawing.Point(279, 8);
             this.btnQuery.Name = "btnQuery";
-            this.btnQuery.Size = new System.Drawing.Size(75, 23);
             this.btnQuery.TabIndex = 2;
             this.btnQuery.Text = "查询";
             this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click);
@@ -311,6 +313,8 @@
             this.dgBills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgBills.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column24,
+            this.IdCardFront,
+            this.IdCardBack,
             this.hasReceiveMoney,
             this.BillID,
             this.ColPassword,
@@ -362,6 +366,22 @@
             this.Column24.HeaderText = "收货时间";
             this.Column24.Name = "Column24";
             this.Column24.ReadOnly = true;
+            // 
+            // IdCardFront
+            // 
+            this.IdCardFront.DataPropertyName = "IdCardFront";
+            this.IdCardFront.HeaderText = "IdCardFront";
+            this.IdCardFront.Name = "IdCardFront";
+            this.IdCardFront.ReadOnly = true;
+            this.IdCardFront.Visible = false;
+            // 
+            // IdCardBack
+            // 
+            this.IdCardBack.DataPropertyName = "IdCardBack";
+            this.IdCardBack.HeaderText = "IdCardBack";
+            this.IdCardBack.Name = "IdCardBack";
+            this.IdCardBack.ReadOnly = true;
+            this.IdCardBack.Visible = false;
             // 
             // hasReceiveMoney
             // 
@@ -682,6 +702,8 @@
         private System.Windows.Forms.TextBox txtMeasureEnd;
         private System.Windows.Forms.TextBox txtMeasureStart;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdCardFront;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdCardBack;
         private System.Windows.Forms.DataGridViewTextBoxColumn hasReceiveMoney;
         private System.Windows.Forms.DataGridViewTextBoxColumn BillID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColPassword;
@@ -719,6 +741,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column22;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column30;
         private System.Windows.Forms.DataGridViewTextBoxColumn PayTypeID;
-
     }
 }
