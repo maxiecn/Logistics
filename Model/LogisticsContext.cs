@@ -50,5 +50,9 @@ namespace LogisticsAPI.Models
         public virtual DbSet<T_Transinfos> T_Transinfos { get; set; }
 
         public virtual DbSet<T_IP> T_IP { get; set; }
+        public virtual DbSet<T_Tax> T_Tax
+        {
+            get;set;
+        }
     }
 }

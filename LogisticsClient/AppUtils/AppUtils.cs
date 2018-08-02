@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using DevExpress.Office.Utils;
 using DevExpress.XtraRichEdit.API.Word;
 using Newtonsoft.Json;
+using LogisticsClient.Lang;
 
 namespace LogisticsClient.AppUtils
 {
@@ -97,6 +98,16 @@ namespace LogisticsClient.AppUtils
         public static object GetInfo<T>(T p, string name)
         {
             return p.GetType().GetProperty(name).GetValue(p, null);
+        }
+
+        public static bool CheckText(Control ctl, string message)
+        {
+            if (ctl.Text.Trim().Equals(string.Empty))
+            {
+                MessageBox.Show(LangBase.GetString(message));
+                return false;
+            }
+            return true;
         }
     }
 }

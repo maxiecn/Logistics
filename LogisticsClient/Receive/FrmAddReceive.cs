@@ -197,21 +197,21 @@ namespace LogisticsClient.Receive
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (!CheckText(txtSenderName, "NoSender"))
+            if (!AppUtils.AppUtils.CheckText(txtSenderName, "NoSender"))
                 return;
 
-            if (!CheckText(txtSenderTel, "NoSenderTel"))
+            if (!AppUtils.AppUtils.CheckText(txtSenderTel, "NoSenderTel"))
                 return;
 
-            if (!CheckText(txtReceiverName, "NoReceiver")) return;
+            if (!AppUtils.AppUtils.CheckText(txtReceiverName, "NoReceiver")) return;
 
-            if (!CheckText(txtReceiverTel, "NoReceiverTel"))
+            if (!AppUtils.AppUtils.CheckText(txtReceiverTel, "NoReceiverTel"))
                 return;
 
-            if (!CheckText(txtReceiverAddress, "NoReceiverAddr"))
+            if (!AppUtils.AppUtils.CheckText(txtReceiverAddress, "NoReceiverAddr"))
                 return;
 
-            if (!CheckText(cbxGoodsType, "NoGoodsType"))
+            if (!AppUtils.AppUtils.CheckText(cbxGoodsType, "NoGoodsType"))
                 return;
 
             if (cbxTrans.Text.Equals(string.Empty))
@@ -233,10 +233,10 @@ namespace LogisticsClient.Receive
                 MessageBox.Show(LangBase.GetString("NoUnitPrice"));
             }
 
-            if (!CheckText(cbxPackingType, "NoPackingType"))
+            if (!AppUtils.AppUtils.CheckText(cbxPackingType, "NoPackingType"))
                 return;
 
-            if (!CheckText(txtPrice, "NoPrice"))
+            if (!AppUtils.AppUtils.CheckText(txtPrice, "NoPrice"))
                 return;
 
             FillEmptyText(txtMeasure);
@@ -373,15 +373,6 @@ namespace LogisticsClient.Receive
             txtSum.Text = sum;
         }
 
-        private bool CheckText(Control ctl, string message)
-        {
-            if (ctl.Text.Trim().Equals(string.Empty))
-            {
-                MessageBox.Show(LangBase.GetString(message));
-                return false;
-            }
-            return true;
-        }
 
         private void txtVolumn_KeyPress(object sender, KeyPressEventArgs e)
         {

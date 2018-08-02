@@ -74,6 +74,7 @@
     <Compile Include="DefaultModels\T_TransToKM.cs" />
     <Compile Include="DefaultModels\T_TransToKMDetail.cs" />
     <Compile Include="DefaultModels\T_UserFunction.cs" />
+    <Compile Include="DefaultModels\T_Tax.cs" />
     <Compile Include="Dto\AppQueryDto.cs" />
     <Compile Include="Dto\BackToStockGoods.cs" />
     <Compile Include="Dto\BackToStoreGoods.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Dto\SendBillDetail.cs" />
     <Compile Include="Dto\StockInBaseInfo.cs" />
     <Compile Include="Dto\StoreDto.cs" />
+    <Compile Include="Dto\TaxDto.cs" />
     <Compile Include="Dto\TransCompDto.cs" />
     <Compile Include="Dto\TransferBill.cs" />
     <Compile Include="Dto\TransResult.cs" />

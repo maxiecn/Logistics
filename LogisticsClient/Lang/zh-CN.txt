@@ -36,3 +36,7 @@ BACK_SUCCESS = 退回成功
 IMPORT_TRANS_SUCCESS = 转运信息导入成功
 INVALID_PASSWORD = 设置密码无效
 ALLSTORE = 全部店面
+NO_GOODS_NAME = 未填写货物名称
+NO_CIQ_PRICE = 未填写货物估值
+NO_CIQ_RATE = 未填写货物税率
+NOT_SELECT_TAX = 未选择要修改的信息

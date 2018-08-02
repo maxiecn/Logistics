@@ -170,6 +170,7 @@
     <Compile Include="Controllers\BaseData\PayTypeController.cs" />
     <Compile Include="Controllers\BaseData\PriceInfoController.cs" />
     <Compile Include="Controllers\BaseData\StoreInfoController.cs" />
+    <Compile Include="Controllers\BaseData\TaxController.cs" />
     <Compile Include="Controllers\BaseData\TransCompanyController.cs" />
     <Compile Include="Controllers\BaseData\UsersController.cs" />
     <Compile Include="Controllers\DatabaseController.cs" />

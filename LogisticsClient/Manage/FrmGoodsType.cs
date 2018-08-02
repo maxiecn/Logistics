@@ -28,6 +28,9 @@ namespace LogisticsClient.Manage
         {
             var goodstypes = GoodsType.GetAll();
             dgTypes.DataSource = goodstypes;
+
+            var goodsTax = Tax.GetAll();
+            dgTax.DataSource = goodsTax;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -55,6 +58,42 @@ namespace LogisticsClient.Manage
             else
             {
                 MessageBox.Show(result.Message);
+            }
+        }
+
+        private void btnAddTax_Click(object sender, EventArgs e)
+        {
+            new FrmAddTax().ShowDialog();
+            ReloadData();
+        }
+
+        private void dgTax_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
+            ModifyTax();
+        }
+
+        private void ModifyTax()
+        {
+            if (dgTax.SelectedCells.Count == 0)
+            {
+                MessageBox.Show(LangBase.GetString("NOT_SELECT_TAX"));
+                return;
+            }
+            else
+            {
+                int rowIndex = dgTax.SelectedCells[0].RowIndex;
+                TaxDto modifyTaxDto = new TaxDto();
+                modifyTaxDto.GoodsID = Convert.ToInt16(dgTax.Rows[rowIndex].Cells["GoodsID"].Value);
+                modifyTaxDto.GoodsName = dgTax.Rows[rowIndex].Cells["GoodsName"].Value.ToString();
+                modifyTaxDto.Price = Convert.ToInt16(dgTax.Rows[rowIndex].Cells["Price"].Value);
+                modifyTaxDto.TaxRate = Convert.ToInt16(dgTax.Rows[rowIndex].Cells["TaxRate"].Value);
+                FrmAddTax fmodify = new FrmAddTax(modifyTaxDto);
+                fmodify.ShowDialog();
+                ReloadData();
             }
         }
     }
