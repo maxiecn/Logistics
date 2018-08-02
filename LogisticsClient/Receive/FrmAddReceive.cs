@@ -59,6 +59,7 @@ namespace LogisticsClient.Receive
         {
             InitializeComponent();
             InitBase();
+            NeedCIQ = false;
         }
 
         public FrmAddReceive(ReceiveDto receive)
@@ -98,16 +99,21 @@ namespace LogisticsClient.Receive
             txtGoodsName.Text = receive.GoodsName;
             txtBillFee.Text = receive.BillFee.ToString();
             txtPrice.Text = receive.Price.ToString();
-            txtIdCard.Text = receive.IdCard;
-            txtCIQPrice.Text = receive.CIQPrice.ToString();
-            txtTaxPrice.Text = receive.TaxPrice.ToString();
-            txtTaxRate.Text = receive.TaxRate.ToString();
-            txtDetail.Text = receive.Detail;
-            txtCIQAddress.Text = receive.CIQAddress;
-            btnCardFront.Tag = receive.IdCardFront;
-            ShowPic(btnCardFront, btnCardFront.Tag.ToString());
-            btnCardBack.Tag = receive.IdCardBack;
-            ShowPic(btnCardBack, btnCardBack.Tag.ToString());
+
+            NeedCIQ = !receive.IdCard.Equals("");
+            if (!receive.IdCard.Equals(""))
+            {
+                txtIdCard.Text = receive.IdCard;
+                txtCIQPrice.Text = receive.CIQPrice.ToString();
+                txtTaxPrice.Text = receive.TaxPrice.ToString();
+                txtTaxRate.Text = receive.TaxRate.ToString();
+                txtDetail.Text = receive.Detail;
+                txtCIQAddress.Text = receive.CIQAddress;
+                btnCardFront.Tag = receive.IdCardFront;
+                ShowPic(btnCardFront, btnCardFront.Tag.ToString());
+                btnCardBack.Tag = receive.IdCardBack;
+                ShowPic(btnCardBack, btnCardBack.Tag.ToString());
+            }
 
             foreach (var goodstypes in cbxGoodsType.Items)
             {
@@ -585,8 +591,32 @@ namespace LogisticsClient.Receive
 
         private void lblToggle_Click(object sender, EventArgs e)
         {
-            pnlCIQ.Visible = !pnlCIQ.Visible;
-            this.Width = pnlCIQ.Visible ? 1267 : 906;
+            NeedCIQ = !NeedCIQ;
+        }
+
+        private bool _needCIQ = false;
+        private bool NeedCIQ
+        {
+            get
+            {
+                return _needCIQ;
+            }
+            set
+            {
+                _needCIQ = value;
+                pnlCIQ.Visible = value;
+                this.Width = value ? 1267 : 906;
+            }
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            FrmTaxAssitant frmTaxAssitant = new FrmTaxAssitant();
+            if (frmTaxAssitant.ShowDialog() == DialogResult.OK)
+            {
+                //txtTaxPrice.Text = frmTaxAssitant.selectDto.Price.ToString();
+                txtTaxRate.Text = frmTaxAssitant.selectDto.TaxRate.ToString();
+            }
         }
     }
 }

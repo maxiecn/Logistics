@@ -362,6 +362,12 @@
     <Compile Include="Receive\FrmSendToStore.Designer.cs">
       <DependentUpon>FrmSendToStore.cs</DependentUpon>
     </Compile>
+    <Compile Include="Receive\FrmTaxAssitant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receive\FrmTaxAssitant.Designer.cs">
+      <DependentUpon>FrmTaxAssitant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Store\FrmBackToStoreBills.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -516,6 +522,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Receive\FrmSendToStore.resx">
       <DependentUpon>FrmSendToStore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receive\FrmTaxAssitant.resx">
+      <DependentUpon>FrmTaxAssitant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Store\FrmBackToStoreBills.resx">
       <DependentUpon>FrmBackToStoreBills.cs</DependentUpon>

@@ -12,8 +12,8 @@ namespace LogisticsClient.AppUtils
 {
     public class WebCall
     {
-        public static string BaseUrl = "http://localhost:8011/";
-        public static string BaseApiUrl = "http://localhost:8011/api/";
+        public static string BaseUrl = "http://192.168.1.250:8730/";
+        public static string BaseApiUrl = "http://192.168.1.250:8730/api/";
         //public static string BaseUrl = "http://localhost:12390/";
         //public static string BaseApiUrl = "http://localhost:12390/api/";
         //public static string BaseUrl = "http://www.thaiyuda.com:114/";

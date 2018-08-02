@@ -34,5 +34,11 @@ namespace Model.Dto
         {
             get; set;
         }
+
+        public override string ToString()
+        {
+            return GoodsName + ":" + Price.ToString() + "-" + TaxRate.ToString();
+            ;
+        }
     }
 }
